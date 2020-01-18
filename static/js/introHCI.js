@@ -24,10 +24,13 @@ function projectClick(e) {
     e.preventDefault();
 	$(this).css("background-color", "#7fff00");
 	var containingProject = $(this).closest(".project");
-    var description = $(containingProject).find(".project-description");
+	var description = $(containingProject).find(".project-description");
+	if (description.length >= 1) {console.log(description.length)}
     if (description.length == 0) {
-       $(containingProject).append("<div class='project-description' id='description'><p>Description of the project.</p></div>");
+       $(containingProject).append("<div id='desc' class='project-description'><p>Description of the project.</p></div>");
     } else {
-       $("#description").fadeOut();
-    }
+		var desc = $(containingProject).find('#desc');
+		$(desc).fadeOut();
+	}
+	
 }
